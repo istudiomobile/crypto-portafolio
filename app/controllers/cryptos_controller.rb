@@ -81,7 +81,7 @@ class CryptosController < ApplicationController
       @crypto = Crypto.find(params[:id])
       rescue ActiveRecord::RecordNotFound => e
       render json: {
-        error: "User with id #{params[:id]} not found."
+        error: e.to_s
       }, status: :not_found
     end
 
