@@ -79,10 +79,10 @@ class CryptosController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_crypto
       @crypto = Crypto.find(params[:id])
-      # rescue ActiveRecord::RecordNotFound => e
-      # render json: {
-      #   error: e.to_s
-      # }, status: :not_found
+      rescue ActiveRecord::RecordNotFound => e
+      render json: {
+        error: e.to_s
+      }, status: :not_found
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
